@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Cookie;
 import java.sql.*;
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
+//import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 import java.sql.DriverManager;
 /**
  *
