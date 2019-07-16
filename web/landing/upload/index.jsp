@@ -98,7 +98,7 @@ var fn1=function()
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select * from [file]");
             while(rs.next()){
-            String name=rs.getString("name");;
+            String name=rs.getString("name");
             
         %>
         <div class="col-sm-3 thumbnail" style="align-content: center;align-items: center;display: block;cursor: pointer" <%
@@ -111,7 +111,7 @@ var fn1=function()
              %>  >
                 <img src="/NCP3/resources/icons/<%
                      
-                        out.print(name.substring(name.lastIndexOf('.')+1));
+                        out.print((name.substring(name.lastIndexOf('.')+1)).toLowerCase());
                      
                      %>.png" onerror="this.src='/NCP3/resources/icons/file.png'" style="width:100px;padding: 10px;margin-left: auto;margin-right: auto;display: block"></img> 
                 <span style="font-size: 23px;margin-left: auto;"><%out.println(name); %><br><% Integer sz=Integer.parseInt(rs.getString("size")); if(sz>1024)out.print(""+(sz/1024)+" KB");else {out.print(""+sz);} %> </span>
