@@ -80,14 +80,16 @@ and open the template in the editor.
             </div>
                 
         </nav>
-        <nav class="navbar navbar-expand-sm bg-info ">
+        <nav class="navbar navbar-expand-sm bg-warning ">
             
                 <div class="btn-group">
-                <button type="button" class="btn btn-danger" onclick="MainFrameLink('./attendance1/')">Attendance</button>
-                <button type="button" class="btn btn-danger" onclick="MainFrameLink('./grades/')">Grades</button>
-                <button type="button" class="btn btn-success" onclick="MainFrameLink('./feedback/')">Feedback</button>
-                <button type="button" class="btn btn-success">Registration</button>
-                <button type="button" class="btn btn-success">Fees</button>
+                <button type="button" class="btn btn-primary" onclick="MainFrameLink('upload')">Course Material</button>
+                <% if(role==0){   %>
+                <button type="button" class="btn btn-primary" onclick="MainFrameLink('../quiz')">Quiz</button>
+                <%  } %>
+                <button type="button" class="btn btn-primary" onclick="MainFrameLink('./feedback/')">Feedback</button>
+                <button type="button" class="btn btn-primary">Registration</button>
+                <button type="button" class="btn btn-primary">Fees</button>
                 <!--<button  type="button" class="btn btn-primary">My Workspace</button>--->
             </div>
             
