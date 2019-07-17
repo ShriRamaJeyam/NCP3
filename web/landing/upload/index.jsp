@@ -52,6 +52,9 @@ input[type='file'] {
             margin-left: 4px;
             margin-top: 4px;
         }
+        .thumbnail:hover{
+            background-color:rgb(205,205,225);
+        }
 </style>
 <script type="text/javascript">
 var fn1=function()
