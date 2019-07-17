@@ -135,7 +135,7 @@ var fn1=function()
                         out.print((name.substring(name.lastIndexOf('.')+1)).toLowerCase());
                      
                      %>.png" onerror="this.src='/NCP3/resources/icons/file.png'" style="width:100px;padding: 10px;margin-left: auto;margin-right: auto;display: block"></img> 
-                <span style="font-size: 23px;margin-left: auto;"><%out.println(name); %><br><% Integer sz=Integer.parseInt(rs.getString("size")); if(sz>1024)out.print(""+(sz/1024)+" KB");else {out.print(""+sz);} %> </span>
+                <span style="font-size: 23px;margin-left: auto;"><%out.println(name); %><br><% Integer sz=Integer.parseInt(rs.getString("size")); if(sz>1048576)out.print(""+(sz/1048576)+" MB");else if(sz>1024)out.print(""+(sz/1024)+" KB");else {out.print(""+sz+" Bytes");} %> </span>
             </div>
         <% } %>
         </div>
