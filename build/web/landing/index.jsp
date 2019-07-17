@@ -83,7 +83,7 @@ and open the template in the editor.
         <nav class="navbar navbar-expand-sm bg-info ">
             
                 <div class="btn-group">
-                    <button type="button" class="btn btn-danger" onclick="MainFrameLink('./attendance1/')">Attendance</button>
+                <button type="button" class="btn btn-danger" onclick="MainFrameLink('./attendance1/')">Attendance</button>
                 <button type="button" class="btn btn-danger" onclick="MainFrameLink('./grades/')">Grades</button>
                 <button type="button" class="btn btn-success" onclick="MainFrameLink('./feedback/')">Feedback</button>
                 <button type="button" class="btn btn-success">Registration</button>
