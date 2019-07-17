@@ -74,7 +74,7 @@ and open the template in the editor.
             
             <div class="btn-group">
                 <button type="button" class="btn btn-primary" onclick="MainFrameLink('./home/')"><i class="fa fa-home" style="font-size:40px;color: whitesmoke"></i></button>
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('./psw/')"><i class="fa fa-key" style="font-size:40px;color: whitesmoke"></i></button>
+                <button type="button" class="btn btn-primary" onclick="MainFrameLink('/NCP3/resetpassword.html')"><i class="fa fa-key" style="font-size:40px;color: whitesmoke"></i></button>
                 <button type="button" class="btn btn-primary" onclick="MainFrameLink('./profile/')"><i class="fa fa-user-circle-o" style="font-size:40px;color: whitesmoke"></i></button>
                 <button type="button" class="btn btn-primary"  onclick="window.location.href='/NCP3/logout'"><i  class="fa fa-sign-out" style="font-size:48px;color:whitesmoke"></i></button>
             </div>
@@ -83,7 +83,7 @@ and open the template in the editor.
         <nav class="navbar navbar-expand-sm bg-warning ">
             
                 <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('upload')">Course Material</button>
+                <button type="button" class="btn btn-primary" onclick="MainFrameLink(' upload')">Course Material</button>
                 <% if(role==0){   %>
                 <button type="button" class="btn btn-primary" onclick="MainFrameLink('../quiz')">Quiz</button>
                 <%  } %>

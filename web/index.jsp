@@ -124,7 +124,7 @@ select {
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="forgot_pass.html">
+						<a class="txt2" href="forgotpassword.html">
 							Username / Password?
 						</a>
 						<br>
