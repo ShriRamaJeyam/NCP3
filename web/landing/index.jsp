@@ -104,7 +104,7 @@ and open the template in the editor.
             </ul>
         </nav>
        
-        <iframe id="mainframe" style="border:none;width:100%;" src="./home/" onload="this.style.height=(this.contentDocument.body.scrollHeight +70)+'px'; if((this.contentDocument.body.scrollHeight +70) <= 600) this.style.height='600px' "/>
+        <iframe id="mainframe" style="border:none;width:100%;" src="./upload/" onload="this.style.height=(this.contentDocument.body.scrollHeight +70)+'px'; if((this.contentDocument.body.scrollHeight +70) <= 600) this.style.height='600px' "/>
         
     </body>
 </html>

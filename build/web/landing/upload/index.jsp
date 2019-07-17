@@ -1,4 +1,4 @@
-<%@page import="java.util.*,java.sql.*" %>
+<%@page import="java.util.*,java.sql.*,javax.servlet.http.Cookie" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -68,6 +68,23 @@ var fn1=function()
 <title>Upload Materials</title>
 </head>
 <body>
+    <%
+    Cookie[] ck=request.getCookies();
+    boolean roleset=false;
+    int role=-1;
+    for(int i=0;i!=ck.length;i++)
+    {
+        if(ck[i].getName().equals("role"))
+        {
+            roleset=true;
+            role=Integer.parseInt(ck[i].getValue());
+            
+        }
+        
+    }
+    if(roleset&&(role==1||role==2))
+    {
+    %>
     <form method="post"  enctype="multipart/form-data" action="do">
         <div class="input-container">
             <input type="hidden" value="" id="FileName" name="FileName">
@@ -81,9 +98,10 @@ var fn1=function()
             <input type="submit" class="btn btn-success">
         </div>
     </form>
+    <% }  %>
     <div style="padding:25px;">
         <div class="row">
-        <%
+        <%           
              Connection con;
             try
             {
