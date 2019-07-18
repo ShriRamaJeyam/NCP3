@@ -40,8 +40,7 @@ body {
 
 #timer
 {
-  position: fixed;
-  top: 0;
+  position: relative;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   align-content: center;
