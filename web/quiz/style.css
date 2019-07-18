@@ -38,6 +38,19 @@ body {
   margin: 0 0.5rem;
 }
 
+#timer
+{
+  position: fixed;
+  top: 0;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  align-content: center;
+  font-size: 30px;
+  width: 300px;
+  border: 10px solid rgb(148, 29, 102);
+  color: rgb(71, 4, 57);
+}
+
 .questionBox {
   max-width: 30rem;
   width: 30rem;
