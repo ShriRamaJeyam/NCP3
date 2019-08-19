@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <%@page import="java.util.*,javax.servlet.http.Cookie,java.sql.*" %>
 <%
     Connection con;
@@ -45,70 +40,82 @@ and open the template in the editor.
     {
         String name=rs.getString("name");
 %>
+
 <html>
-    <head>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/NCP3/resources/vendor/bootstrap/css/bootstrap.min.css">
-        <script src="/NCP3/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <title>Utilities Home</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseWebsite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <script>
             
             function MainFrameLink(a)
             {
-               document.getElementById('mainframe').src=a;
+               document.getElementById('MainFrame').src=a;
                 
             }
-            
-        </script>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm bg-dark">
-            <img src="/NCP3/resources/images/logo.png" style="width:80px"/>
-            <ul class="navbar-nav mr-auto">
-                
-                <li><h3 style="color: whitesmoke;font-family:Lucida Console">Amrita Course Management System</h3><li style="color: whitesmoke;font-family:Lucida Console"><br><br>Welcome <% out.print(name); %></li></li>
-            </ul>
-            
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('./home/')"><i class="fa fa-home" style="font-size:40px;color: whitesmoke"></i></button>
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('/NCP3/resetpassword.html')"><i class="fa fa-key" style="font-size:40px;color: whitesmoke"></i></button>
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('./profile/')"><i class="fa fa-user-circle-o" style="font-size:40px;color: whitesmoke"></i></button>
-                <button type="button" class="btn btn-primary"  onclick="window.location.href='/NCP3/logout'"><i  class="fa fa-sign-out" style="font-size:48px;color:whitesmoke"></i></button>
+            function SizeAdjust()
+            {
+                var element=document.getElementById('MainFrame');
+                var height=element.contentWindow.document.body.offsetHeight;
+                if(height + 500 <= 1500)
+                {
+                    element.style.height='1500px';
+                }
+                else
+                {
+                    element.style.height=''+(height+500)+'px';
+                } 
+                console.log("Hello Called");
+            }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md bg-warning" style="padding:4px 4px;height:139px;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-family:Aclonica, sans-serif;"><img src="assets/img/logo.png" style="width:100px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="font-family:Aclonica, sans-serif;font-size:30px;"><br><strong>Amrita Course Management System</strong><br><br></a></li>
+                    <li class="nav-item align-self-end" role="presentation" style="font-size:16px;color:rgb(13,124,235);"><a class="nav-link active align-items-center align-content-center align-self-center" style="font-family:Aclonica, sans-serif;font-size:16px;">Hello,  <% out.print(name); %><div class="btn-group align-self-center" role="group"></div><br></a></li>
+                    <li
+                        class="nav-item align-self-center" role="presentation">
+                        <a class="nav-link active align-items-center align-content-center align-self-center" style="height:80px;width:400px;">
+                            <div class="btn-group align-self-center" role="group">
+                                <button type="button" style="height:80px;width:80px;" class="btn btn-primary" onclick="MainFrameLink('./home/')"><i class="fa fa-home" style="font-size:40px;color: whitesmoke"></i></button>
+                                <button type="button" style="height:80px;width:80px;" class="btn btn-primary" onclick="MainFrameLink('/NCP3/resetpassword.html')"><i class="fa fa-key" style="font-size:40px;color: whitesmoke"></i></button>
+                                <button type="button" style="height:80px;width:80px;" class="btn btn-primary" onclick="MainFrameLink('./profile/')"><i class="fa fa-user-circle-o" style="font-size:40px;color: whitesmoke"></i></button>
+                                <button type="button" style="height:80px;width:80px;" class="btn btn-primary"  onclick="window.location.href='/NCP3/logout'"><i  class="fa fa-sign-out" style="font-size:48px;color:whitesmoke"></i></button>
+                            </div><br></a>
+                         </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light navbar-expand-md bg-success">
+        <div class="container-fluid"><a class="navbar-brand" href="#"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-2">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('http://vedabase.io')">First Item</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('www.twitter.com')">First Item</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('www.twitter.com')">First Item</a></li>
+                </ul>
             </div>
-                
-        </nav>
-        <nav class="navbar navbar-expand-sm bg-warning ">
-            
-                <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink(' upload')">Course Material</button>
-                <% if(role==0){   %>
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('../quiz')">Quiz</button>
-                <%  } %>
-                <button type="button" class="btn btn-primary" onclick="MainFrameLink('./feedback/')">Feedback</button>
-                <button type="button" class="btn btn-primary">Registration</button>
-                <button type="button" class="btn btn-primary">Fees</button>
-                <!--<button  type="button" class="btn btn-primary">My Workspace</button>--->
-            </div>
-            
-            <ul class="navbar-nav ml-auto">
-            <li>
-                    <select name="course" class="form-control"  style="width: 415px">
-                        <option >Home</option>
-                        <option>Net Centric Programming</option>
-                        <option>Internet Of Things</option>
-                        <option>Structure And Interpretation of Computer Programs</option>
-                        <option>Information Security</option>
-                    </select>
-                </li>
-            </ul>
-        </nav>
-       
-        <iframe id="mainframe" style="border:none;width:100%;" src="./upload/" onload="this.style.height=(this.contentDocument.body.scrollHeight +70)+'px'; if((this.contentDocument.body.scrollHeight +70) <= 600) this.style.height='600px' "/>
-        
-    </body>
+        </div>
+    </nav><div class="embed-responsive embed-responsive-16by9">
+        <iframe  id="MainFrame" class="embed-responsive-item" src="http://www.w3.org" onload="SizeAdjust()                      "></iframe></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
 <% }
 try
