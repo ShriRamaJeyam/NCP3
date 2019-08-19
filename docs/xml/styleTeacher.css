@@ -1,0 +1,43 @@
+
+teachers  
+              { 
+              font-size:80%; 
+              margin:0.5em; 
+              font-family: Verdana; 
+              display:block; 
+              } 
+teacher { 
+              display:block;  
+              border: 3px solid gold; 
+              margin:0.5em;  
+              padding:0.5em;  
+              background-color:silver; 
+              } 
+teacherid, name, dob, email, username, passcode, cookie{ 
+                                 display:block; 
+                                 text-align:center; 
+                                 } 
+teacherid { 
+     color:green;  
+     text-decoration: underline  ; 
+     font-weight:bolder; 
+     font-size:20px; 
+     } 
+name { 
+       color:red
+       } 
+dob { 
+       color:brown 
+       } 
+email { 
+       color:red
+       } 
+username { 
+       color:brown 
+       } 
+passcode { 
+       color: yellow
+}
+cookie { 
+       color:red
+       } 

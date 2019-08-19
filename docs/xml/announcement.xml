@@ -1,4 +1,5 @@
-
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml-stylesheet type="text/css" href="styleAnnouncement.css"?>
 
 <announcements>
 <announcement>
@@ -11,9 +12,9 @@
 <TIMESTAMP>
 2019-01-01 12:00:00.0
 </TIMESTAMP>
-<announcement>
+<message>
 Aloooooooiii
-</announcement>
+</message>
 </announcement>
 <announcement>
 <ID>
@@ -25,9 +26,9 @@ Aloooooooiii
 <TIMESTAMP>
 2019-04-01 12:00:00.0
 </TIMESTAMP>
-<announcement>
+<message>
 Please finish your notes
-</announcement>
+</message>
 </announcement>
 <announcement>
 <ID>
@@ -39,9 +40,9 @@ Please finish your notes
 <TIMESTAMP>
 2019-06-10 12:00:00.0
 </TIMESTAMP>
-<announcement>
+<message>
 Please be on time to class
-</announcement>
+</message>
 </announcement>
 <announcement>
 <ID>
@@ -53,8 +54,8 @@ Please be on time to class
 <TIMESTAMP>
 2019-01-01 12:00:00.0
 </TIMESTAMP>
-<announcement>
+<message>
 Course Materials Uploaded
-</announcement>
+</message>
 </announcement>
 </announcements>

@@ -1,0 +1,46 @@
+
+students  
+              { 
+              font-size:80%; 
+              margin:0.5em; 
+              font-family: Verdana; 
+              display:block; 
+              } 
+student { 
+              display:block;  
+              border: 3px solid gold; 
+              margin:0.5em;  
+              padding:0.5em;  
+              background-color:silver; 
+              } 
+studentid, name, dob, class, email, username, passcode, cookie{ 
+                                 display:block; 
+                                 text-align:center; 
+                                 } 
+studentid { 
+     color:green;  
+     text-decoration: underline  ; 
+     font-weight:bolder; 
+     font-size:20px; 
+     } 
+name { 
+       color:red
+       } 
+dob { 
+       color:brown 
+       } 
+class { 
+       color: yellow
+       } 
+email { 
+       color:red
+       } 
+username { 
+       color:brown 
+       } 
+passcode { 
+       color: yellow
+}
+cookie { 
+       color:red
+       } 
