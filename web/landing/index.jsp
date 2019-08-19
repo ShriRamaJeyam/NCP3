@@ -104,9 +104,9 @@
             <div class="collapse navbar-collapse"
                 id="navcol-2">
                 <ul class="nav navbar-nav">
+                  <% if(role==2){ %>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('http://vedabase.io')">First Item</a></li>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('www.twitter.com')">First Item</a></li>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('www.twitter.com')">First Item</a></li>
+                  <% } %>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseWebsite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <div class="register-photo" style="background-image:url(&quot;assets/img/meeting.jpg&quot;);">
+        <div class="form-container">
+            <form method="get" action="submit">
+                <h2 class="text-center"><strong>Add new courses</strong></h2>
+                <div class="form-group"><input class="form-control" type="text" name="coursename" required="" placeholder="Course Name" maxlength="50"></div>
+                <div class="form-group"><input class="form-control" type="text" name="credits" required="" placeholder="Credits" maxlength="1" pattern="[1-9]"></div>
+                <div class="form-group"><textarea class="form-control" name="p1" placeholder="Unit 1 Portions" style="height:160px;"></textarea></div>
+                <div class="form-group"><textarea class="form-control" name="p2" placeholder="Unit 2 Portions" style="height:160px;"></textarea></div>
+                <div class="form-group"><textarea class="form-control" name="p3" placeholder="Unit 1 Portion3" style="height:160px;"></textarea></div>
+                <div class="form-group"><button class="btn btn-warning btn-block" type="submit">Add Course</button></div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
