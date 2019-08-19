@@ -1,0 +1,51 @@
+
+courses  
+              { 
+              font-size:80%; 
+              margin:0.5em; 
+              font-family: Verdana; 
+              display:block; 
+              } 
+course { 
+              display:block;  
+              border: 3px solid gold; 
+              margin:0.5em;  
+              padding:0.5em;  
+              background-color:silver; 
+              } 
+courseid, name, unit1, unit2, unit3, P1, P2, P3, EndSem, credits{ 
+                                 display:block; 
+                                 text-align:center; 
+                                 } 
+courseid { 
+     color:green;  
+     text-decoration: underline  ; 
+     font-weight:bolder; 
+     font-size:20px; 
+     } 
+name { 
+       color:red
+       } 
+unit1 { 
+       color:brown 
+       } 
+unit2 { 
+       color: yellow
+       } 
+unit3 { 
+       color:red
+       } 
+P1 { 
+       color:brown 
+       } 
+P2 { 
+       color: yellow
+}
+P3 { 
+       color:red
+       } 
+EndSem { 
+       color:brown 
+       } 
+credits { 
+       color: yellow

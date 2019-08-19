@@ -16,7 +16,17 @@
     rs.next();
     Integer cnt=rs.getInt("cnt");
     System.out.println("SriRamaJeyam _ "+cnt);
-    
+    try{
+        if(Integer.parseInt(request.getParameter("css"))==1)
+        {
+            out.println("<?xml-stylesheet type=\"text/css\" href=\"/NCP3/landing/xml/"+request.getParameter("table")+".css\"?>");
+        }
+        
+        }
+    catch(Exception e)
+    {
+        
+    }
     String lst[]=new String[cnt.intValue()+5];
     stmt=con.createStatement();
     System.out.println("SriRamaJeyam0");

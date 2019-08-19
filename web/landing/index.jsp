@@ -62,17 +62,17 @@
             }
             function SizeAdjust()
             {
-                var element=document.getElementById('MainFrame');
+               /* var element=document.getElementById('MainFrame');
                 var height=element.contentWindow.document.body.offsetHeight;
-                if(height + 500 <= 1500)
+                if(height + 500 <= 2000)
                 {
-                    element.style.height='1500px';
+                    element.style.height='2000px';
                 }
                 else
                 {
                     element.style.height=''+(height+500)+'px';
                 } 
-                console.log("Hello Called");
+                console.log("Hello Called");*/
             }
     </script>
 </head>
@@ -105,14 +105,20 @@
                 id="navcol-2">
                 <ul class="nav navbar-nav">
                   <% if(role==2){ %>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="#" onclick="">First Item</a></li>
-                  
-                    <% } %>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/addcourse" onclick="">AddCourse</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/xml.jsp?table=course&css=1" onclick="">ViewCourses</a></li>
+                  <% }else if(role==0){ %>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/Quiz" onclick="">TakeTest</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">ViewMaterial</a></li>
+                  <% }else{ %>
+                        <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
+                   <% }%>
                 </ul>
             </div>
         </div>
     </nav><div class="embed-responsive embed-responsive-16by9">
-        <iframe name="MainFrame" id="MainFrame" class="embed-responsive-item" src="http://www.w3.org" onload="SizeAdjust()                      "></iframe></div>
+        <iframe name="MainFrame" id="MainFrame" class="embed-responsive-item" src="" onload="SizeAdjust()"></iframe></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
