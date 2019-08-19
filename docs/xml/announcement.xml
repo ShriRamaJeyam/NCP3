@@ -1,0 +1,60 @@
+
+
+<announcements>
+<announcement>
+<ID>
+1
+</ID>
+<courseid>
+1
+</courseid>
+<TIMESTAMP>
+2019-01-01 12:00:00.0
+</TIMESTAMP>
+<announcement>
+Aloooooooiii
+</announcement>
+</announcement>
+<announcement>
+<ID>
+2
+</ID>
+<courseid>
+2
+</courseid>
+<TIMESTAMP>
+2019-04-01 12:00:00.0
+</TIMESTAMP>
+<announcement>
+Please finish your notes
+</announcement>
+</announcement>
+<announcement>
+<ID>
+3
+</ID>
+<courseid>
+3
+</courseid>
+<TIMESTAMP>
+2019-06-10 12:00:00.0
+</TIMESTAMP>
+<announcement>
+Please be on time to class
+</announcement>
+</announcement>
+<announcement>
+<ID>
+4
+</ID>
+<courseid>
+67
+</courseid>
+<TIMESTAMP>
+2019-01-01 12:00:00.0
+</TIMESTAMP>
+<announcement>
+Course Materials Uploaded
+</announcement>
+</announcement>
+</announcements>
