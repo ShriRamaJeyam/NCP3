@@ -105,13 +105,14 @@
                 id="navcol-2">
                 <ul class="nav navbar-nav">
                   <% if(role==2){ %>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" href="#" onclick="MainFrameLink('http://vedabase.io')">First Item</a></li>
-                  <% } %>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="#" onclick="">First Item</a></li>
+                  
+                    <% } %>
                 </ul>
             </div>
         </div>
     </nav><div class="embed-responsive embed-responsive-16by9">
-        <iframe  id="MainFrame" class="embed-responsive-item" src="http://www.w3.org" onload="SizeAdjust()                      "></iframe></div>
+        <iframe name="MainFrame" id="MainFrame" class="embed-responsive-item" src="http://www.w3.org" onload="SizeAdjust()                      "></iframe></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
