@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search courses</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.1.0.js"
+
+    ></script>
+    <script type="text/javascript">//<![CDATA[
+
+      $(window).load(function(){
+
+  var $filterableRows = $('#MI6').find('tr').not(':first'),
+    $inputs = $('.search-key');
+
+  $inputs.on('input', function() {
+
+    $filterableRows.hide().filter(function() {
+      return $(this).find('td').filter(function() {
+
+        var tdText = $(this).text().toLowerCase(),
+          inputValue = $('#' + $(this).data('input')).val().toLowerCase();
+
+        return tdText.indexOf(inputValue) != -1;
+
+      }).length == $(this).find('td').length;
+    }).show();
+
+  });
+
+
+      });
+
+    //]]></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+      <img width='70px' src="./assets/img/logo.jpg" alt="">
+        <div class="container">
+          <a class="navbar-brand logo" href="#">Search Courses&nbsp;</a>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/NCP3">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page lanidng-page"></main>
+    <div class="table-responsive">
+      <br>
+      <br>
+      <br>
+        <table class="table" id="MI6">
+          <tbody><tr>
+            <td>
+              <input type="text" id="course_code" class="search-key" placeholder="Course Code">
+              </td>
+            <td><input type="text" id="course_name" class="search-key" placeholder="Course Name">
+              </td>
+            <td><input type="text" id="dept" class="search-key" placeholder="Department">
+              </td>
+            <td><input type="number" id="credits" class="search-key" placeholder="Credits">
+            </td>
+            <td><input type="text" id="faculty" class="search-key" placeholder="Faculty">
+            </td>
+          </tr>
+
+
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Department</th>
+            <th>Credits</th>
+            <th>Faculty</th>
+          </tr>
+          <tr>
+            <td data-input="course_code">James</td>
+            <td data-input="course_name">Bond</td>
+            <td data-input="dept">7</td>
+            <td data-input="credits">7</td>
+            <td data-input="faculty">7</td>
+          </tr>
+          <tr>
+            <td data-input="course_code">Lily</td>
+            <td data-input="course_name">Bond</td>
+            <td data-input="dept">7</td>
+            <td data-input="credits">7</td>
+            <td data-input="faculty">7</td>
+          </tr>
+          <tr>
+            <td data-input="course_code">Lily</td>
+            <td data-input="course_name">Bond</td>
+            <td data-input="dept">8</td>
+            <td data-input="credits">8</td>
+            <td data-input="faculty">7</td>
+          </tr>
+          <tr>
+            <td data-input="course_code">Vesper</td>
+            <td data-input="course_name">Lynd</td>
+            <td data-input="dept">6</td>
+            <td data-input="credits">6</td>
+            <td data-input="faculty">7</td>
+          </tr>
+          <tr>
+            <td data-input="course_code">Rene</td>
+            <td data-input="course_name">Mathis</td>
+            <td data-input="dept">5</td>
+            <td data-input="credits">5</td>
+            <td data-input="faculty">7</td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+</body>
+
+</html>
