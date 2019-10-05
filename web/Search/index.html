@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search courses</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-2.1.0.js"
+
+    ></script>
+    <script type="text/javascript">//<![CDATA[
+
+      $(window).load(function(){
+
+  var $filterableRows = $('#MI6').find('tr').not(':first'),
+    $inputs = $('.search-key');
+
+  $inputs.on('input', function() {
+
+    $filterableRows.hide().filter(function() {
+      return $(this).find('td').filter(function() {
+
+        var tdText = $(this).text().toLowerCase(),
+          inputValue = $('#' + $(this).data('input')).val().toLowerCase();
+
+        return tdText.indexOf(inputValue) != -1;
+
+      }).length == $(this).find('td').length;
+    }).show();
+
+  });
+
+
+      });
+
+    //]]></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+      <img width='70px' src="./assets/img/logo.jpg" alt="">
+        <div class="container">
+          <a class="navbar-brand logo" href="#">Search Courses&nbsp;</a>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse"
+                id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/NCP3">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page lanidng-page"></main>
+    <div class="table-responsive">
+      <br>
+      <br>
+      <br>
+        <table class="table" id="MI6">
+          <tbody><tr>
+            <td>
+              <input type="text" id="course_code" class="search-key" placeholder="Course Code">
+              </td>
+            <td><input type="text" id="course_name" class="search-key" placeholder="Course Name">
+              </td>
+            <td><input type="text" id="dept" class="search-key" placeholder="Department">
+              </td>
+            <td><input type="number" id="credits" class="search-key" placeholder="Credits">
+            </td>
+            <td><input type="text" id="faculty" class="search-key" placeholder="Faculty">
+            </td>
+          </tr>
+
+
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Department</th>
+            <th>Credits</th>
+            <th>Faculty</th>
+          </tr>
+          <tr>
+    <td data-input="course_code">15CSE102</td>
+    <td data-input="course_name">CS Basics Lab</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.isha</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE103</td>
+    <td data-input="course_name">Intro to Programming</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.shyani devi</td>
+</tr>
+<tr>
+    <td data-input="course_code">19CSE104</td>
+    <td data-input="course_name">Foundations of Data Science</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.divya</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE105</td>
+    <td data-input="course_name">Intro to Algorithms</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.mansi</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE201</td>
+    <td data-input="course_name">CS Essentials</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.mazida</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE202</td>
+    <td data-input="course_name">C Programming</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.pooja</td>
+</tr>
+<tr>
+    <td data-input="course_code">18CSE203</td>
+    <td data-input="course_name">Python Basics</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.kajal</td>
+</tr>
+<tr>
+    <td data-input="course_code">16CSE204</td>
+    <td data-input="course_name">Coding in R</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.meena</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE205</td>
+    <td data-input="course_name">Networks</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.sonam</td>
+</tr>
+<tr>
+    <td data-input="course_code">19CSE301</td>
+    <td data-input="course_name">Algorithmic Analysis</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.abhi</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE302</td>
+    <td data-input="course_name">Software Engineering</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.ram dutt gupta</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE303</td>
+    <td data-input="course_name">Compiler Design</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.khadak singh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE304</td>
+    <td data-input="course_name">Theory of Computation</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.gurmit singh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15CSE305</td>
+    <td data-input="course_name">Net Centric Programming</td>
+    <td data-input="dept">CSE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.chanderpal</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE101</td>
+    <td data-input="course_name">Digital Circuits</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.aman</td>
+</tr>
+<tr>
+    <td data-input="course_code">16ECE102</td>
+    <td data-input="course_name">Semi Conductors</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.khursid</td>
+</tr>
+<tr>
+    <td data-input="course_code">18ECE103</td>
+    <td data-input="course_name">Metallurgical Properties</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.rajeev</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE104</td>
+    <td data-input="course_name">Adv Circuits</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.durgesh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE105</td>
+    <td data-input="course_name">Circuitry Design</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.nahar singh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE201</td>
+    <td data-input="course_name">Digital Signal Proc. 1</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.ram kumar</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE202</td>
+    <td data-input="course_name">Digital Signal Proc. 2</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.sunder paal</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE203</td>
+    <td data-input="course_name">Telecommunicaiton Basics</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.maansingh aswal</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE204</td>
+    <td data-input="course_name">Electronics Basics</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.rohit</td>
+</tr>
+<tr>
+    <td data-input="course_code">16ECE205</td>
+    <td data-input="course_name">Electrical material</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.Ramesh </td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE301</td>
+    <td data-input="course_name">Electrostatics</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.sparsh</td>
+</tr>
+<tr>
+    <td data-input="course_code">18ECE302</td>
+    <td data-input="course_name">Electricity in Everyday Life</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.Sriram</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE303</td>
+    <td data-input="course_name">Dynamic Electrics</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.santosh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE304</td>
+    <td data-input="course_name">Consumer Electronic</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.punit khandelwal</td>
+</tr>
+<tr>
+    <td data-input="course_code">15ECE305</td>
+    <td data-input="course_name">Signal Proc Lab</td>
+    <td data-input="dept">ECE</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.dinesh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC101</td>
+    <td data-input="course_name">Fluid Mechanics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.gulshan</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC102</td>
+    <td data-input="course_name">Thermostatics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.arvind kumar yadav</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC103</td>
+    <td data-input="course_name">Intro to Automobile Engg</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.nausad</td>
+</tr>
+<tr>
+    <td data-input="course_code">16MEC104</td>
+    <td data-input="course_name">Mechatronics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.gurmit singh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC105</td>
+    <td data-input="course_name">Mechanical Approach to Robotics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.md. afsar</td>
+</tr>
+<tr>
+    <td data-input="course_code">19MEC201</td>
+    <td data-input="course_name">Construction Materials </td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.shiv shakti singh</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC202</td>
+    <td data-input="course_name">Intro to Fluid dynamics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.moti lal</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC203</td>
+    <td data-input="course_name">Design thinking</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.kausal kumar</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC204</td>
+    <td data-input="course_name">Braking Systems</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.rohit</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC205</td>
+    <td data-input="course_name">Angular dynamics</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">2</td>
+    <td data-input="faculty">Dr.Abhilash</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC301</td>
+    <td data-input="course_name">Strength of materials</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.Uma</td>
+</tr>
+<tr>
+    <td data-input="course_code">16MEC302</td>
+    <td data-input="course_name">Manufacturing engineering</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">4</td>
+    <td data-input="faculty">Dr.Akshaya</td>
+</tr>
+<tr>
+    <td data-input="course_code">15MEC303</td>
+    <td data-input="course_name">Theory of Machines</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.Niranjan</td>
+</tr>
+<tr>
+    <td data-input="course_code">18MEC304</td>
+    <td data-input="course_name">Heat and Mass transfer</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">1</td>
+    <td data-input="faculty">Dr.Renunka</td>
+</tr>
+<tr>
+    <td data-input="course_code">19MEC305</td>
+    <td data-input="course_name">Fluid Mechanic Workshop</td>
+    <td data-input="dept">MEC</td>
+    <td data-input="credits">3</td>
+    <td data-input="faculty">Dr.Vineeth</td>
+</tr>
+        </tbody>
+        </table>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+
+</body>
+
+</html>
