@@ -1,5 +1,4 @@
-<%-- 
-    Document   : index
+<%--     Document   : index
     Created on : Aug 19, 2019, 2:35:06 PM
     Author     : Niranjan Kumar K S
 --%>

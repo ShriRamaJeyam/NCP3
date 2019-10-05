@@ -58,11 +58,12 @@ public class LoginValidator extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            int d=((int)(Math.random()*10000));
             ResultSet rs=stmt.executeQuery("select * from "+tbl+" where username='"+request.getParameter("usr")+"' and passcode='"+request.getParameter("pass")+"'");
             String reurl;
             if(rs.next())
             {
-                Cookie ckie=new Cookie("ID",ssn.getId()),typ=new Cookie("role",request.getParameter("role"));
+                Cookie ckie=new Cookie("ID",ssn.getId()+d),typ=new Cookie("role",request.getParameter("role"));
                 ckie.setPath("/");
                 typ.setPath("/");
                 ckie.setMaxAge(60*60*24*10);
@@ -72,7 +73,7 @@ public class LoginValidator extends HttpServlet {
                 String id=rs.getString(1);
                 rs.close();
                 
-                stmt.execute("update "+tbl+" set cookie='"+ssn.getId()+"' where "+tbl+"id='"+id+"';");
+                stmt.execute("update "+tbl+" set cookie='"+ssn.getId()+d+"' where "+tbl+"id='"+id+"';");
                 reurl="/NCP3/landing";
             }
             else
