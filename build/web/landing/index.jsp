@@ -4,14 +4,14 @@
     Connection con;
     try
     {
-    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
     }
     catch(Exception e)
     {
         ;
     }
-    String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-    con=DriverManager.getConnection(ConnURL);
+    //String ConnURL=;//"jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    con=DriverManager.getConnection(Globals.univ.ConString);
     Statement stmt=con.createStatement();
     Cookie[] ck=request.getCookies();
     boolean roleset=false;
