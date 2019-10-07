@@ -42,7 +42,7 @@ public class Logout extends HttpServlet {
                 ckie.setPath("/");
                 ckie.setMaxAge(1);
                 response.addCookie(ckie);
-                request.getSession(true).setAttribute("role",null);
+                request.getSession(true).setAttribute("state",null);
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");

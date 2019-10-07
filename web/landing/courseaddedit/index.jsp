@@ -2,7 +2,21 @@
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
-    <% 
+    <%          
+                if(Globals.univ.logincheck(request, response)==false)
+                {
+                    out.println("<head>");
+                    out.println("<meta http-equiv=\"refresh\" content=\"0; url=\\NCP3\\logout\">");           
+                    out.println("</head>");
+                }
+                else
+                {
+                int role=-1;    
+                HttpSession ssn=request.getSession();
+                if(ssn!=null)
+                {
+                    role=((data.login)ssn.getAttribute("state")).role;
+                }
                 boolean isedit=false;
                 String id=null,p1=null,p2=null,p3=null,u1=null,u2=null,u3=null,credit=null,name=null,endsem=null;
                 if(request.getParameter("id")!=null)
@@ -35,8 +49,8 @@
               
                 }
             
-        Integer role=(Integer)request.getSession(true).getAttribute("role");
-        if(role!=null&&role==2){ %>
+        
+        if(role==2){ %>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +63,7 @@
 
 <body>
     <div class="contact-clean" style="background-image:url(&quot;assets/img/background.jpg&quot;);padding:36px;">
-        <form method="POST" action="handle" style="margin:15px;width:801px;">
+        <form method="POST" action="handle" style="margin:15px;width:1201px;">
             <h2 class="text-center">Add or Edit Course</h2>
             <%
             if(isedit){
@@ -106,8 +120,8 @@
 else
 {
     out.println("<head>");
-    out.println("<meta http-equiv=\"refresh\" content=\"0; url=\\NCP3 \">");           
+    out.println("<meta http-equiv=\"refresh\" content=\"0; url=\\NCP3\\logout\">");           
     out.println("</head>");
 }
-%>
+}%>
 </html>
