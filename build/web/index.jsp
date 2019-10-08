@@ -1,4 +1,19 @@
 <html lang="en">
+    <%
+        if(Globals.univ.logincheck(request, response))
+        {
+            %>
+            <head><script>
+                window.location='/NCP3/landing/';
+                
+                </script></head>
+    
+            <%
+            
+        }
+        else
+        {
+    %>
 <head>
     <style>
         select {
@@ -163,4 +178,5 @@ select {
 	<script src="js/main.js"></script>
 
 </body>
+<% } %>
 </html>

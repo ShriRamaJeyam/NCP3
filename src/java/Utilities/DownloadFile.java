@@ -43,7 +43,7 @@ public class DownloadFile extends HttpServlet {
             Connection conn=DriverManager.getConnection(ConnURL);
          
         try {
-            String sql = "SELECT * FROM [file] WHERE fileid = ?";
+            String sql = "select materialid fileid,[filename] [name],size,content data  from coursematerials WHERE materialid = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, uploadId);
  

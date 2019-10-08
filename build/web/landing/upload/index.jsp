@@ -46,15 +46,14 @@ input[type='file'] {
 input[type='file'] {
   display: none;
 }
-.thumbnail{
-            background-color:rgb(235,235,255);
-            border-radius: 10px;
-            margin-left: 4px;
-            margin-top: 4px;
-        }
-        .thumbnail:hover{
-            background-color:rgb(205,205,225);
-        }
+.thumbnail
+{
+    background-color:rgb(235,235,255);
+}
+.thumbnail:hover
+{
+    background-color:rgb(205,205,225);
+}
 </style>
 <script type="text/javascript">
 var fn1=function()
@@ -101,14 +100,17 @@ var fn1=function()
             <input type="submit" class="btn btn-success">
         </div>
     </form>
-    <% }  %>
-    <div style="padding:25px;">
+    <%  } 
+        if(roleset)
+        {  %>
+        <div class="row">    
+    <div style="padding: 10px;">
         <div class="row">
         <%           
-             Connection con;
+            Connection con;
             try
             {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
             }
             catch(Exception e)
             {
@@ -117,18 +119,19 @@ var fn1=function()
             String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
             con=DriverManager.getConnection(ConnURL);
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("select * from [file]");
-            while(rs.next()){
+            ResultSet rs=stmt.executeQuery("select fileid,name,size,filetyp,ref from [file]");
+            ResultSetMetaData mtdt=rs.getMetaData();
+            for(int i=0;i!=mtdt.getColumnCount();i++)
+            System.out.println(mtdt.getColumnName(i+1));
+            while(rs.next())
+            {
             String name=rs.getString("name");
             
         %>
-        <div class="col-sm-3 thumbnail" style="align-content: center;align-items: center;display: block;cursor: pointer" <%
-             
+        <div class="col-sm-3" style="padding:8px;"> 
+             <div class="thumbnail" style="cursor: pointer;border-radius:10px;padding:8px;" 
+             <%
              out.print("onclick=\"window.location.assign('/NCP3/DownloadFile?id="+rs.getInt("fileid")+"');\"");
-             
-             
-             
-             
              %>  >
                 <img src="/NCP3/resources/icons/<%
                      
@@ -137,8 +140,11 @@ var fn1=function()
                      %>.png" onerror="this.src='/NCP3/resources/icons/file.png'" style="width:100px;padding: 10px;margin-left: auto;margin-right: auto;display: block"></img> 
                 <span style="font-size: 23px;margin-left: auto;"><%out.println(name); %><br><% Integer sz=Integer.parseInt(rs.getString("size")); if(sz>1048576)out.print(""+(sz/1048576)+" MB");else if(sz>1024)out.print(""+(sz/1024)+" KB");else {out.print(""+sz+" Bytes");} %> </span>
             </div>
+            </div>
         <% } %>
         </div>
-    </div>
+    </div><%
+    }
+    %>
 </body>
 </html>

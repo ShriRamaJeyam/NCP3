@@ -42,7 +42,7 @@ public class LoginValidator extends HttpServlet {
             PrintWriter out = response.getWriter();
             HttpSession ssn=request.getSession();
             
-            String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+            String ConnURL=Globals.univ.ConString;//"jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
             con=DriverManager.getConnection(ConnURL);
             Statement stmt=con.createStatement();
             String role=request.getParameter("role");
@@ -64,6 +64,8 @@ public class LoginValidator extends HttpServlet {
             if(rs.next())
             {
                 Cookie ckie=new Cookie("ID",ssn.getId()+d),typ=new Cookie("role",request.getParameter("role"));
+                Integer introle=Integer.parseInt(role);
+                request.getSession(true).setAttribute("role",introle);
                 ckie.setPath("/");
                 typ.setPath("/");
                 ckie.setMaxAge(60*60*24*10);

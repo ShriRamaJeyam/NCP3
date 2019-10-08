@@ -4,14 +4,14 @@
     Connection con;
     try
     {
-    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
     }
     catch(Exception e)
     {
         ;
     }
-    String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-    con=DriverManager.getConnection(ConnURL);
+    //String ConnURL=;//"jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    con=DriverManager.getConnection(Globals.univ.ConString);
     Statement stmt=con.createStatement();
     Cookie[] ck=request.getCookies();
     boolean roleset=false;
@@ -62,7 +62,12 @@
             }
             function SizeAdjust()
             {
-               /* var element=document.getElementById('MainFrame');
+               
+            }
+            
+            /*var intervalID = setInterval(function()
+            {
+                var element=document.getElementById('MainFrame');
                 var height=element.contentWindow.document.body.offsetHeight;
                 if(height + 500 <= 2000)
                 {
@@ -72,8 +77,10 @@
                 {
                     element.style.height=''+(height+500)+'px';
                 } 
-                console.log("Hello Called");*/
+                
+                console.log("Hello Called");
             }
+            , 5000);*/
     </script>
 </head>
 
@@ -104,14 +111,23 @@
             <div class="collapse navbar-collapse"
                 id="navcol-2">
                 <ul class="nav navbar-nav">
-                  <% if(role==2){ %>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/addcourse" onclick="">AddCourse</a></li>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/xml.jsp?table=course&css=1" onclick="">ViewCourses</a></li>
+                    <%if(role==1||role==0){%>
+                            <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/Course/student/" onclick="">Home</a></li>
+                    <% } %>
+
+                    <% if(role==2){ %>
+                    
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/courseaddedit/view" onclick="">Course Management</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/studentcourseregisterapprove/" onclick="">StudentApprove</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/facultycourseregisterapprove/" onclick="">FacultyApprove</a></li>
+                   <!---- <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/xml.jsp?table=course&css=1" onclick="">ViewCourses</a></li> ------->
                   <% }else if(role==0){ %>
+                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/studentcourseregister" onclick="">CourseRegistration</a></li>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/Quiz" onclick="">TakeTest</a></li>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">ViewMaterial</a></li>
                   <% }else{ %>
+                        <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/facultycourseregister" onclick="">CourseRegistration</a></li>
                         <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
                    <% }%>
                 </ul>
