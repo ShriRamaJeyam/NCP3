@@ -7,7 +7,6 @@ package Utilities;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -15,13 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.sql.*;
 /**
  *
  * @author Niranjan Kumar K S
  */
-@WebServlet(name = "studentcourseregisterhandle", urlPatterns = {"/landing/studentcourseregister/handle"})
-public class studentcourseregisterhandle extends HttpServlet {
+@WebServlet(name = "markupdate", urlPatterns = {"/Course/teacher/marks/update"})
+public class markupdate extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,57 +31,50 @@ public class studentcourseregisterhandle extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+    {
         response.setContentType("text/html;charset=UTF-8");
-        boolean error=true;
-        try 
+        
+        try
         {
+            PrintWriter out = response.getWriter();
+            Globals.univ.logincheck(request, response);
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con=DriverManager.getConnection(Globals.univ.ConString);
-            Statement stmt=con.createStatement();
-            stmt.executeUpdate("insert into courseenrollment(courseid,studentid) values("+request.getParameter("cid")+","+request.getParameter("sid")+")");
-            error=false;
-            //try{rs.close();}catch(Exception e){}
-            try{stmt.close();}catch(Exception e){}
-            try{con.close();}catch(Exception e){}
-        } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
+            int rows=Integer.parseInt(request.getParameter("rowcount"));
+            for(int i=1;i<=rows;i++)
+            {
+                Statement stmt=con.createStatement();
+                String id,p1,p2,p3,es,in;
+                id=request.getParameter(""+rows);
+                p1=request.getParameter(rows+"_p1");
+                p2=request.getParameter(rows+"_p2");
+                p3=request.getParameter(rows+"_p3");
+                es=request.getParameter(rows+"_es");
+                in=request.getParameter(rows+"_in");
+                String qry="update courseenrollment set p1marks="+p1+",p2marks="+p2+",p3marks="+p3+",semestermarks="+es+",internal="+in+" where courseid="+request.getParameter("cid")+" and studentid="+id;
+                System.out.println(qry);
+                stmt.executeUpdate(qry);
+                stmt.close();
+            }            
+            con.close();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
+            out.println("<title>Servlet markupdate</title>");            
             out.println("<script>");
-            if(error)
-            {
-                out.println("alert('failed to register');");
-            }
-            else
-            {
-                out.println("alert('Success');");
-            }
-            out.println("window.location.href='/NCP3/landing/studentcourseregister'");
+            out.println("window.location.href='/NCP3/Course/student/?who=3'");
             out.println("</script>");
-            out.println("<title>Registering Course</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("</body>");
             out.println("</html>");
+        } 
+        catch (Exception ex) 
+        {
+            Logger.getLogger(markupdate.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -3,25 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Utilities;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author Niranjan Kumar K S
  */
-@WebServlet(name = "studentcourseregisterhandle", urlPatterns = {"/landing/studentcourseregister/handle"})
-public class studentcourseregisterhandle extends HttpServlet {
+@WebServlet(urlPatterns = {"/announce"})
+public class announce extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,56 +34,36 @@ public class studentcourseregisterhandle extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        response.setContentType("text/html;charset=UTF-8");
-        boolean error=true;
-        try 
-        {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            throws ServletException, IOException 
+    {
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
             Connection con=DriverManager.getConnection(Globals.univ.ConString);
-            Statement stmt=con.createStatement();
-            stmt.executeUpdate("insert into courseenrollment(courseid,studentid) values("+request.getParameter("cid")+","+request.getParameter("sid")+")");
-            error=false;
-            //try{rs.close();}catch(Exception e){}
-            try{stmt.close();}catch(Exception e){}
-            try{con.close();}catch(Exception e){}
-        } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
+            {
+                PreparedStatement stmt=con.prepareStatement("insert into announcement(courseid,message) values ("+request.getParameter("cid")+",?)");                
+                stmt.setString(1,request.getParameter("announcement"));
+                stmt.executeUpdate();                
+            }
         }
-        
-        
-        
-        
-        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            System.err.println(e.toString());
+            
+        }
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<script>");
-            if(error)
-            {
-                out.println("alert('failed to register');");
-            }
-            else
-            {
-                out.println("alert('Success');");
-            }
-            out.println("window.location.href='/NCP3/landing/studentcourseregister'");
-            out.println("</script>");
-            out.println("<title>Registering Course</title>");            
+            out.println("<meta http-equiv=\"refresh\" content=\"2;url=/NCP3/Course/student/?who=1\" />");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<h1>Servlet FileUpload at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

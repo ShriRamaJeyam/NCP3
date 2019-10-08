@@ -8,8 +8,6 @@ package Utilities;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Niranjan Kumar K S
+ * @author Abhilash V
  */
-@WebServlet(name = "studentcourseregisterhandle", urlPatterns = {"/landing/studentcourseregister/handle"})
-public class studentcourseregisterhandle extends HttpServlet {
+@WebServlet(name = "unit", urlPatterns = {"/Course/student/unit", "/Course/teacher/unit"})
+public class unit extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,56 +31,42 @@ public class studentcourseregisterhandle extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        boolean error=true;
-        try 
-        {
+        try{
+            /* TODO output your page here. You may use following sample code. */
+            PrintWriter out = response.getWriter();
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con=DriverManager.getConnection(Globals.univ.ConString);
             Statement stmt=con.createStatement();
-            stmt.executeUpdate("insert into courseenrollment(courseid,studentid) values("+request.getParameter("cid")+","+request.getParameter("sid")+")");
-            error=false;
-            //try{rs.close();}catch(Exception e){}
-            try{stmt.close();}catch(Exception e){}
-            try{con.close();}catch(Exception e){}
-        } 
-        catch (ClassNotFoundException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(studentcourseregisterhandle.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<script>");
-            if(error)
+            ResultSet rs=stmt.executeQuery("select unit1,unit2,unit3 from course where courseid="+request.getParameter("cid"));
+            if(rs.next())
             {
-                out.println("alert('failed to register');");
+                switch((int)Integer.parseInt(request.getParameter("unit")))
+                {
+                    case 1:
+                    out.println(rs.getString(1));
+                    break;
+                    case 2:
+                    out.println(rs.getString(2));
+                    break;
+                    case 3:
+                    out.println(rs.getString(3));
+                    break;
+                }
             }
             else
-            {
-                out.println("alert('Success');");
-            }
-            out.println("window.location.href='/NCP3/landing/studentcourseregister'");
-            out.println("</script>");
-            out.println("<title>Registering Course</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<h1>Error Occured</h1>");
+            try{rs.close();}catch(Exception e){}
+            try{stmt.close();}catch(Exception e){}
+            try{con.close();}catch(Exception e){}
         }
-        
+        catch(Exception e)
+        {
+           e.printStackTrace();
+        }
+    
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

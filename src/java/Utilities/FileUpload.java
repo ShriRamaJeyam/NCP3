@@ -33,16 +33,14 @@ public class FileUpload extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       Exception erro=null;
+        Exception erro=null;
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
-            String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-            Connection con=DriverManager.getConnection(ConnURL);
+            Connection con=DriverManager.getConnection(Globals.univ.ConString);
             Part fp=request.getPart("file");
             if(fp!=null)
             {
-                PreparedStatement stmt=con.prepareStatement("insert into [file](name,size,data) values (?,?,?);");
-                
+                PreparedStatement stmt=con.prepareStatement("insert into coursematerials([filename],size,content,courseid) values (?,?,?,?);");                
                 String fname=request.getParameter("FileName").toString();
                 long size=fp.getSize();
                 InputStream is=fp.getInputStream();
@@ -50,10 +48,14 @@ public class FileUpload extends HttpServlet {
                 stmt.setString(2,""+size+"");
                 if(is!=null)
                 {
+                    System.out.println(request.getParameter("cid"));
                     stmt.setBlob(3, is);
+                    stmt.setInt(4,(int)Integer.parseInt(request.getParameter("cid")));
                     stmt.executeUpdate();
                 }
+                stmt.close();
             }
+            con.close();
         }
         catch(Exception e)
         {
@@ -68,7 +70,7 @@ public class FileUpload extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<meta http-equiv=\"refresh\" content=\"2;url=/NCP3/landing/upload\" />");            
+            out.println("<meta http-equiv=\"refresh\" content=\"2;url=/NCP3/Course/student/?who=2\" />");            
             out.println("</head>");
             out.println("<body>");
             if(erro!=null)

@@ -111,7 +111,11 @@
             <div class="collapse navbar-collapse"
                 id="navcol-2">
                 <ul class="nav navbar-nav">
-                  <% if(role==2){ %>
+                    <%if(role==1||role==0){%>
+                            <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/Course/student/" onclick="">Home</a></li>
+                    <% } %>
+
+                    <% if(role==2){ %>
                     
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/courseaddedit/view" onclick="">Course Management</a></li>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/studentcourseregisterapprove/" onclick="">StudentApprove</a></li>

@@ -42,6 +42,9 @@ public class facultycourseregisterhandle extends HttpServlet {
             Statement stmt=con.createStatement();
             stmt.executeUpdate("insert into facultyenrollment(courseid,teacherid) values("+request.getParameter("cid")+","+request.getParameter("fid")+")");
             error=false;
+            //try{rs.close();}catch(Exception e){}
+            try{stmt.close();}catch(Exception e){}
+            try{con.close();}catch(Exception e){}
         } 
         catch (ClassNotFoundException ex) 
         {

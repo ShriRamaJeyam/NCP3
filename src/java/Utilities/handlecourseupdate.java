@@ -94,6 +94,7 @@ public class handlecourseupdate extends HttpServlet {
                 {
                     out.write("<script> alert(\"Success\"); </script>");
                 }
+                con.close();
                 
             }
             catch(Exception e)

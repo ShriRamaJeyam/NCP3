@@ -103,6 +103,7 @@ var fn1=function()
     <%  } 
         if(roleset)
         {  %>
+        <div class="row">    
     <div style="padding: 10px;">
         <div class="row">
         <%           
@@ -130,7 +131,6 @@ var fn1=function()
         <div class="col-sm-3" style="padding:8px;"> 
              <div class="thumbnail" style="cursor: pointer;border-radius:10px;padding:8px;" 
              <%
-            
              out.print("onclick=\"window.location.assign('/NCP3/DownloadFile?id="+rs.getInt("fileid")+"');\"");
              %>  >
                 <img src="/NCP3/resources/icons/<%

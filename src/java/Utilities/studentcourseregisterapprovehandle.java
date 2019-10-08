@@ -43,6 +43,9 @@ public class studentcourseregisterapprovehandle extends HttpServlet {
             Statement stmt=con.createStatement();
             stmt.executeUpdate("update courseenrollment SET approved=1 where courseid="+request.getParameter("cid")+" and studentid="+request.getParameter("sid"));
             error=false;
+           // try{rs.close();}catch(Exception e){}
+    try{stmt.close();}catch(Exception e){}
+    try{con.close();}catch(Exception e){}
         } 
         catch (ClassNotFoundException ex) 
         {
