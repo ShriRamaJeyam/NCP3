@@ -116,8 +116,8 @@ var fn1=function()
             {
                 ;
             }
-            String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-            con=DriverManager.getConnection(ConnURL);
+            
+            con=DriverManager.getConnection(Globals.univ.ConString);
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select fileid,name,size,filetyp,ref from [file]");
             ResultSetMetaData mtdt=rs.getMetaData();

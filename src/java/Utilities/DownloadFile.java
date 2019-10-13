@@ -39,8 +39,8 @@ public class DownloadFile extends HttpServlet {
         int BUFFER_SIZE = 4096;	
         int uploadId = Integer.parseInt(request.getParameter("id"));
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
-            String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-            Connection conn=DriverManager.getConnection(ConnURL);
+           
+            Connection conn=DriverManager.getConnection(Globals.univ.ConString);
          
         try {
             String sql = "select materialid fileid,[filename] [name],size,content data  from coursematerials WHERE materialid = ?";
