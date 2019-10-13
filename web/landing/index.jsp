@@ -125,7 +125,7 @@
                   <% }else if(role==0){ %>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/studentcourseregister" onclick="">CourseRegistration</a></li>
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/Quiz" onclick="">TakeTest</a></li>
-                    <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">ViewMaterial</a></li>
+                    
                   <% }else{ %>
                         <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/facultycourseregister" onclick="">CourseRegistration</a></li>
                                           <% }%>
