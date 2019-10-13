@@ -10,7 +10,7 @@
     {
         ;
     }
-    //String ConnURL=;//"jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    
     con=DriverManager.getConnection(Globals.univ.ConString);
     Statement stmt=con.createStatement();
     Cookie[] ck=request.getCookies();
@@ -128,8 +128,7 @@
                     <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">ViewMaterial</a></li>
                   <% }else{ %>
                         <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/facultycourseregister" onclick="">CourseRegistration</a></li>
-                        <li class="nav-item" role="presentation" style="font-size:20px;"><a class="nav-link active" target="MainFrame" href="/NCP3/landing/upload" onclick="">AddMaterial</a></li>
-                   <% }%>
+                                          <% }%>
                 </ul>
             </div>
         </div>

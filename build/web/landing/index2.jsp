@@ -15,8 +15,8 @@ and open the template in the editor.
     {
         ;
     }
-    String ConnURL="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-    con=DriverManager.getConnection(ConnURL);
+    
+    con=DriverManager.getConnection(Globals.univ.ConString);
     Statement stmt=con.createStatement();
     Cookie[] ck=request.getCookies();
     boolean roleset=false;

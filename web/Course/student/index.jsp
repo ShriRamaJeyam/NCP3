@@ -57,10 +57,15 @@
 </head>
     <%
         Globals.univ.logincheck(request, response);
+        int role=((data.login)request.getSession().getAttribute("state")).role;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         Connection con=DriverManager.getConnection(Globals.univ.ConString);
         Statement stmt=con.createStatement();
-        ResultSet rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from courseenrollment where studentid="+((data.login)(request.getSession(true).getAttribute("state"))).id+")");
+        ResultSet rs;
+        if(role==0)
+        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from courseenrollment where studentid="+((data.login)(request.getSession(true).getAttribute("state"))).id+")");
+        else
+        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from facultyenrollment where teacherid="+((data.login)(request.getSession(true).getAttribute("state"))).id+")");
     %>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -113,6 +118,13 @@
                 <li class="nav-item" onclick="getlink('../teacher/marks')" style="cursor: pointer">
                     <a class="nav-link" >UpdateMarks</a>
                 </li>        
+                  <%}   
+                    else
+                    {%>
+                    
+                    <li class="nav-item" onclick="getlink('/NCP3/Course/student/marks/')" style="cursor: pointer">
+                    <a class="nav-link" >Marks</a>
+                </li>
                   <%}
                 %>
             </ul>
