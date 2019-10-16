@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Utilities;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -18,12 +20,19 @@ public class EmailSend {
     static MimeMessage emailMessage;   
     public static void main(String args[]) 
     {
+     
         Send("niranjankumar26081998@gmail.com","HTML","<h1>TEST JAVA MESSAGE</h1>");
     }
     public static void Send(String TO,String SUB,String MESS)
     {
         try
-        {
+        {   
+            File f=new File("C:\\AmritaCMSMail.html");
+            FileReader fr=new FileReader(f);
+            char cbuf[]=new char[100000];
+            fr.read(cbuf);
+            //String.copyValueOf(cbuf);
+            String finalStr = String.copyValueOf(cbuf).replace("{name}", MESS);
             String emailPort = "587";//gmail's smtp port
             emailProperties = System.getProperties();
             emailProperties.put("mail.smtp.port", emailPort);
@@ -33,7 +42,7 @@ public class EmailSend {
             emailMessage = new MimeMessage(mailSession);
             emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(TO));
             emailMessage.setSubject(SUB);
-            emailMessage.setContent(MESS, "text/html");
+            emailMessage.setContent(finalStr, "text/html");
             Transport transport = mailSession.getTransport("smtp");
             transport.connect("smtp.gmail.com","ninju26", "@@Sri#Rama");
             transport.sendMessage(emailMessage, emailMessage.getAllRecipients());

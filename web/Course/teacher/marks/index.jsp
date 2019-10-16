@@ -34,8 +34,8 @@
 <tr>
     <th>Roll Number</th>
     <th>Periodical 1</th>
-    <th>Periodical 1</th>
-    <th>Periodical 1</th>
+    <th>Periodical 2</th>
+    <th>Periodical 3</th>
     <th>Internals</th>
     <th>End Semester</th>
 </tr>

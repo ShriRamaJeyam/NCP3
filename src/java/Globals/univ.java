@@ -22,6 +22,7 @@ public class univ
             boolean roleset=false;
             int role=-1;
             String ID="";
+            if(ck!=null)
             for(int i=0;i!=ck.length;i++)
             {
                 if(ck[i].getName().equals("role"))
@@ -50,7 +51,8 @@ public class univ
         }
         return false;
     }
-    public static String ConString="jdbc:sqlserver://studysite.database.windows.net:1433;database=CourseWebsite;user=tibi@studysite;password=SriRama108!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+   // public static String ConString="jdbc:sqlserver://localhost:1433;instance=SQLEXPRESS;database=CourseWebsite;user=tibi;password=SriRama108++;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+    public static String ConString="jdbc:sqlserver://localhost;instance=SQLEXPRESS;database=CourseWebsite;user=tibi;password=SriRama108++;";
     public static Connection conn=null;
     public void univ(){
         try {

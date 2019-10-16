@@ -28,7 +28,7 @@
     stmt.setString(5,request.getParameter("pass"));
     stmt.executeUpdate();
     con.close();
-    Utilities.EmailSend.Send(request.getParameter("email"),"Registration for ACMS",request.getParameter("name"));
+    Utilities.EmailSend.Send(request.getParameter("email"),"Registration for ACMS","<h1>Dear "+request.getParameter("name")+",\nThank You for registering with us.\n-Amrita Course Management System</h1>");
 %>
 <html>
     <head>

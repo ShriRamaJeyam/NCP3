@@ -60,6 +60,7 @@ public class LoginValidator extends HttpServlet {
             out.println("<head>");
             int d=((int)(Math.random()*10000));
             ResultSet rs=stmt.executeQuery("select * from "+tbl+" where username='"+request.getParameter("usr")+"' and passcode='"+request.getParameter("pass")+"'");
+            System.out.println("\n\nselect * from "+tbl+" where username='"+request.getParameter("usr")+"' and passcode='"+request.getParameter("pass")+"'");
             String reurl;
             if(rs.next())
             {

@@ -63,9 +63,9 @@
         Statement stmt=con.createStatement();
         ResultSet rs;
         if(role==0)
-        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from courseenrollment where studentid="+((data.login)(request.getSession(true).getAttribute("state"))).id+")");
+        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from courseenrollment where studentid="+((data.login)(request.getSession(true).getAttribute("state"))).id+" and approved=1)");
         else
-        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from facultyenrollment where teacherid="+((data.login)(request.getSession(true).getAttribute("state"))).id+")");
+        rs=stmt.executeQuery("select courseid,name from course where courseid in(select courseid from facultyenrollment where teacherid="+((data.login)(request.getSession(true).getAttribute("state"))).id+"and approved=1)");
     %>
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">

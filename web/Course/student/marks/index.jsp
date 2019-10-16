@@ -36,8 +36,8 @@
 <tr>
     <th>Subject</th>
     <th>Periodical 1</th>
-    <th>Periodical 1</th>
-    <th>Periodical 1</th>
+    <th>Periodical 2</th>
+    <th>Periodical 3</th>
     <th>Internals</th>
     <th>End Semester</th>
 </tr>
@@ -47,7 +47,7 @@
     Statement stmt=con.createStatement();
     Globals.univ.logincheck(request, response);
     int sid=((data.login)request.getSession().getAttribute("state")).id;
-    ResultSet rs=stmt.executeQuery("select course.courseid courseid,course.[name] [name],p1marks,p2marks,p3marks,semestermarks,internal from courseenrollment,course where course.courseid=courseenrollment.courseid  and courseenrollment.studentid="+sid+"");
+    ResultSet rs=stmt.executeQuery("select course.courseid courseid,course.[name] [name],p1marks,p2marks,p3marks,semestermarks,internal from courseenrollment,course where course.courseid=courseenrollment.courseid and approved=1 and courseenrollment.studentid="+sid+"");
     int rowcount=0;
     while(rs.next())
     {
